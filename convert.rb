@@ -1,18 +1,23 @@
-def iterateString(string)
-  result = temp = ""
-  count = 1
-  string.each_byte do |i|
-    if temp == i.chr then
-      count = count+1
-    else
-      if temp != "" then
-        result = result + temp + count.to_s
-      end
-      temp = i.chr
-      count=1
-    end
+class Convert
+  def initial
+
   end
-  return result = result + temp + count.to_s
+  def iterateString(string)
+    result = temp = ""
+    count = 1
+    string.each_byte do |i|
+      if temp == i.chr then
+        count = count+1
+      else
+        if temp != "" then
+          result = result + temp + count.to_s
+        end
+        temp = i.chr
+        count=1
+      end
+    end
+    return result = result + temp + count.to_s
+  end
 end
 
-puts iterateString("AAAABBBCC")
+puts Convert.new.iterateString("AAAABBBCC")
